@@ -1,9 +1,17 @@
 // Add imports here
-
-
+const BIP39 = require("bip39")
+var isValid = BIP39.validateMnemonic("Enter your mnemonic here")
+// This will return false because "Enter your mneomnic here" is not a valid phrase
 
 // Add functions here
 
+// Generate a random mnemonic (uses crypto.randomBytes under the hood), defaults to 128-bits of entropy
+function generateMnemonic(){
+    return BIP39.generateMnemonic()
+  }
+  function generateSeed(mnemonic){
+    return BIP39.mnemonicToSeed(mnemonic)
+  }
 
 
 /*
